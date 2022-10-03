@@ -2,12 +2,16 @@ import React from "react"
 import Header from "./components/Header"
 import Cart from "./pages/Cart"
 import Photos from "./pages/Photos"
+import {BrowserRouter as Router} from 'react-router-dom'
 
 function App() {    
     return (
-        <div>
+        <Router>
+          <div>
             <Header />
-        </div>
+          </div>
+        </Router>
+        
     )
 }
 

@@ -1,11 +1,14 @@
-import { hover } from '@testing-library/user-event/dist/hover'
 import React from 'react'
+import {Context} from '../context/context'
+
 
 function Image ({className, img}) {
 
+    const {toggleFavorite} = React.useContext(Context)
+
     const [hovered, setHovered] = React.useState(false)
     
-    const heartIcon = hovered && <i className="ri-heart-line favorite"></i>
+    const heartIcon = hovered && <i className={img.isFavorite ? "ri-heart-fill favorite": "ri-heart-line favorite"} onClick={() => toggleFavorite(img.id)}></i>
     const cartIcon = hovered && <i className="ri-add-circle-line cart"></i>
     
 
@@ -19,10 +22,3 @@ function Image ({className, img}) {
 }
 
 export default Image
-
-
-/**
-    <i className="ri-heart-line favorite"></i>
-
-    <i className="ri-add-circle-line cart"></i>
-     */

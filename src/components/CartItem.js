@@ -5,6 +5,7 @@ function CartItem ({item}) {
 
     const {removeFromCart} = React.useContext(Context)
 
+    
     return (
         <div className="cart-item">
             <i className="ri-delete-bin-line" onClick={()=> removeFromCart(item.id)}></i>

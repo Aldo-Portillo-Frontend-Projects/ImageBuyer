@@ -1,5 +1,6 @@
 import React from 'react'
 import {Context} from '../context/context'
+import PropTypes from 'prop-types'
 
 
 function Image ({className, img}) {
@@ -19,6 +20,20 @@ function Image ({className, img}) {
             {cartIcon}
         </div>
     )
+
+
+    //Use propTypes to Image component
+    //The purpose of this is to ensure that the passed value is of the correct datatype
+    //THink of form validation but for props
+
+    Image.propTypes = {
+        className: PropTypes.string,
+        img: PropTypes.shape({
+            id: PropTypes.string.isRequired,
+            url: PropTypes.string.isRequired,
+            isFavorite: PropTypes.bool
+        })
+    }
 }
 
 export default Image

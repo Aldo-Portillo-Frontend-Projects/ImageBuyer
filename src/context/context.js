@@ -1,3 +1,4 @@
+import { func } from 'prop-types'
 import React from 'react'
 const Context = React.createContext()
 
@@ -19,6 +20,7 @@ function ContextProvider ({children}) {
         setAllPhotos(updatedArr)
     } 
 
+
     function addToCart(obj) {
         setCart(prevCart => {
             return [
@@ -26,9 +28,12 @@ function ContextProvider ({children}) {
                 obj
             ]
         })
-
-        console.log(cart)
         
+    }
+
+    function removeFromCart (id) {
+        setCart(prevItems => prevItems.filter(item => item.id !== id))
+
     }
 
 
@@ -42,7 +47,7 @@ function ContextProvider ({children}) {
     
 
     return(
-        <Context.Provider value={{allPhotos, toggleFavorite, addToCart}}>
+        <Context.Provider value={{allPhotos, toggleFavorite, cart, addToCart, removeFromCart}}>
             {children}
         </Context.Provider>
     )

@@ -74,6 +74,7 @@ img.image-grid {
 
 .image-container {
   position: relative;
+  height: 100px
 }
 
 .favorite {
